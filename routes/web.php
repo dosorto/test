@@ -1,57 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\Persona\Personas;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-#este funciona
-Route::get('/jose', function () {
-    return view('jose');
-})->name('jose');
-
-
-// routes/web.php
-Route::get('/create', function () {
-    return view('create');
-})->name('create');
-
-Route::get('/update', function () {
-    return view('update');
-})->name('update');
-
-Route::get('/delete', function () {
-    return view('delete');
-})->name('delete');
-
-Route::get('/insert', function () {
-    return view('insert');
-})->name('insert');
-
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
-/*
-Route::get('/create', function () {
-    return view('create');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/persona', Personas::class)->name('persona');
 });
-
-Route::get('/delete', function () {
-    return view('delete');
-});
-
-Route::get('/update', function () {
-    return view('update');
-});
-
-Route::get('/insert', function () {
-    return view('insert');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
-*/
