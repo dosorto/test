@@ -10,11 +10,14 @@ class Personas extends Component
     use WithPagination;
     public $nombre, $apellido, $identidad, $persona_id,$search;
     public $isOpen = 0;
+
+
     public function render()
     {
         $personas = Persona::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
         return view('livewire.persona.personas', ['personas' => $personas]);
     }
+
     public function create()
     {
         $this->resetInputFields();
@@ -77,3 +80,4 @@ class Personas extends Component
         session()->flash('message', 'Registro Eliminado correctamente!');
     }
 }
+

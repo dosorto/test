@@ -6,9 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/dashboard" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Sistema</span>
-  </a>
+                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Sistema</span>
+                    </a>
                 </div>
 
                 <!-- Navigation Links -->
@@ -17,16 +17,19 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
+
                 @can("admin-persona")
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('persona') }}" :active="request()->routeIs('persona')">
-                        {{ __('Persona') }}
+                        {{ __('Persona1') }}
                     </x-nav-link>
                 </div>
                 @endcan
+
+                <!-- Added "Estudiante" tab -->
                 @can("admin-estudiante")
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('persona') }}" :active="request()->routeIs('persona')">
+                    <x-nav-link href="{{ route('estudiante') }}" :active="request()->routeIs('estudiante')">
                         {{ __('Estudiante') }}
                     </x-nav-link>
                 </div>
@@ -131,7 +134,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Cerrar Sessión') }}
+                                    {{ __('Cerrar Sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -157,6 +160,19 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @can("admin-persona")
+            <x-responsive-nav-link href="{{ route('persona') }}" :active="request()->routeIs('persona')">
+                {{ __('Persona1') }}
+            </x-responsive-nav-link>
+            @endcan
+
+            <!-- Added "Estudiante" tab in responsive menu -->
+            @can("admin-estudiante")
+            <x-responsive-nav-link href="{{ route('estudiante') }}" :active="request()->routeIs('estudiante')">
+                {{ __('Estudiante') }}
+            </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
