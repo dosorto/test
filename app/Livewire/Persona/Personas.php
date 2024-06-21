@@ -12,7 +12,7 @@ class Personas extends Component
     public $isOpen = 0;
     public function render()
     {
-        $personas = Persona::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(5);
+        $personas = Persona::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(10);
         return view('livewire.persona.personas', ['personas' => $personas]);
     }
     public function create()
