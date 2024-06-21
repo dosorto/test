@@ -15,10 +15,7 @@ class Estudiantes extends Component
 
     public function render()
     {
-        $estudiantes = Estudiante::where('nombre', 'like', '%'.$this->search.'%')
-                                 ->orWhere('cuenta', 'like', '%'.$this->search.'%')
-                                 ->orderBy('id', 'DESC')
-                                 ->paginate(5);
+        $estudiantes = Estudiante::where('nombre', 'like', '%'.$this->search.'%')->orWhere('cuenta', 'like', '%'.$this->search.'%')->orderBy('id', 'ASC')->paginate(8);
         return view('livewire.estudiante.estudiantes', ['estudiantes' => $estudiantes]);
     }
 
