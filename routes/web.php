@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Estudiante\Estudiantes;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Persona\Personas;
 
@@ -16,4 +17,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/persona', Personas::class)->name('persona');
+    Route::get('/estudiante', Estudiantes::class)->name('estudiante');
 });
