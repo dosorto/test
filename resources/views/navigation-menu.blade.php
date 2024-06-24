@@ -26,7 +26,7 @@
                 @endcan
                 @can("admin-estudiante")
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('persona') }}" :active="request()->routeIs('persona')">
+                    <x-nav-link href="{{ route('estudiante') }}" :active="request()->routeIs('estudiante')">
                         {{ __('Estudiante') }}
                     </x-nav-link>
                 </div>
