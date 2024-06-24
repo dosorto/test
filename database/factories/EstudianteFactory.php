@@ -24,6 +24,7 @@ class EstudianteFactory extends Factory
             'sexo'=> $this->faker->lastName(),
             'carrera'=> $this->faker->text(),
             'created_by'=>1
+            
         ];
     }
 }
