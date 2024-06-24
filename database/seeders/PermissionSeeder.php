@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             'admin-persona',
+            'admin-estudiante'
          ];
          
          foreach ($permissions as $permission) {
